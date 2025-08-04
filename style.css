@@ -1,0 +1,240 @@
+:root {
+  --ff: 'Poppins', sans-serif;
+  --clr-bg: #f8f8f8;
+  --clr-text: #333;
+  --clr-accent: #0077cc;
+  --sp: 1rem;
+  --section-gap: calc(var(--sp)*4);
+  --skills-bg: #ffffff; /* white skills section */
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--ff);
+  background: var(--clr-bg);
+  color: var(--clr-text);
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+/* Navigation */
+header {
+  background: var(--clr-bg);
+  padding: var(--sp) calc(var(--sp)*2);
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #ddd;
+  z-index: 100;
+}
+.logo {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+.nav-toggle {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.nav-links {
+  display: flex;
+  gap: var(--sp);
+}
+.nav-links a {
+  text-decoration: none;
+  color: var(--clr-text);
+  font-weight: 500;
+  padding: var(--sp) 0;
+  position: relative;
+}
+.nav-links a:hover::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--clr-accent);
+}
+
+/* Mobile nav */
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+  }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: var(--clr-bg);
+    width: 180px;
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+  }
+  .nav-links.open {
+    display: flex;
+  }
+  header {
+    position: relative;
+  }
+}
+
+/* Generic section style */
+.section {
+  padding: var(--section-gap) var(--sp);
+}
+.section h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: var(--sp);
+}
+
+/* Hero */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: var(--section-gap);
+}
+.hero-content h1 {
+  font-size: 2.5rem;
+}
+.hero-content h1 span {
+  color: var(--clr-accent);
+}
+.hero-content p {
+  margin-top: var(--sp);
+}
+.hero-img {
+  display: none;
+  width: 100%;
+  border-radius: 8px;
+}
+@media (min-width: 768px) {
+  .hero-img {
+    display: block;
+  }
+}
+
+/* About Me */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp);
+  max-width: 800px;
+  margin: 0 auto;
+}
+.about-grid .avatar {
+  width: 160px;
+  border-radius: 50%;
+  justify-self: center;
+}
+.about-text p + p {
+  margin-top: var(--sp);
+}
+@media (min-width: 768px) {
+  .about-grid {
+    grid-template-columns: auto 1fr;
+    align-items: center;
+  }
+}
+
+/* Skills */
+.skills {
+  background: var(--skills-bg);
+}
+.skills-intro {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto var(--section-gap);
+  color: #555;
+}
+/* Flex/grid of skill items */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: calc(var(--sp)*1.5);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.skill-item {
+  background: #fcfcfc;
+  padding: calc(var(--sp)*2) var(--sp);
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.1);
+}
+.skill-item img {
+  width: 60px;
+  height: 60px;
+  filter: grayscale(30%);
+  margin-bottom: var(--sp);
+}
+.skill-item h3 {
+  margin-bottom: 0.5rem;
+  color: var(--clr-accent);
+  font-size: 1.1rem;
+}
+.skill-item p {
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.4;
+}
+
+/* Contact */
+.contact {
+  text-align: center;
+  background: var(--clr-bg);
+}
+.contact p {
+  margin-bottom: var(--sp);
+}
+.contact-links {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: var(--sp);
+}
+.btn, .btn-outline {
+  display: inline-block;
+  text-decoration: none;
+  padding: var(--sp) calc(var(--sp)*2);
+  border-radius: 4px;
+  font-weight: 500;
+  transition: background .3s;
+}
+.btn {
+  background: var(--clr-accent);
+  color: white;
+}
+.btn:hover {
+  background: #005fa7;
+}
+.btn-outline {
+  border: 2px solid var(--clr-accent);
+  color: var(--clr-accent);
+}
+.btn-outline:hover {
+  background: var(--clr-accent);
+  color: white;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  font-size: 0.9rem;
+  padding: var(--sp)*2;
+  border-top: 1px solid #ddd;
+}
