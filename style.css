@@ -15,6 +15,22 @@
   margin: 0;
   padding: 0;
 }
+.card-info {
+  padding: var(--sp);
+}
+.section {
+  padding: calc(var(--sp)*4) var(--sp);
+}
+.projects .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: calc(var(--sp)*2);
+}
+.project-card {
+  background: var(--clr-bg-alt);
+  border-radius: 8px;
+  overflow: hidden;
+}
 
 
 body {
